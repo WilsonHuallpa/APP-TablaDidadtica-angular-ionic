@@ -1,0 +1,75 @@
+<ion-content class="background no-scroll">
+  <div class="contenedor">
+    <ion-img class="ImagenIcono" src="../../assets/logo.png"></ion-img>
+  </div>
+
+  <ion-row  class="botones justify-content: space-around">
+    <ion-col>
+      <ion-button 
+      expand="block"
+      color="success"
+      (click)="onLogin('usuario@usuario.com', 333333 )"
+      fill="outline"
+      size="small">Usuario</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button 
+      expand="block"
+      color="success"
+      (click)="onLogin('admin@admin.com', 111111 )"
+      size="small"
+      fill="outline"
+      >Admin</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button
+      expand="block"
+      color="success"
+     (click)="onLogin('tester@tester.com', 555555 )"
+     fill="outline"
+      size="small">Tester</ion-button>
+    </ion-col>
+  </ion-row>
+    <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
+      <ion-row>
+        <ion-col>
+          <ion-item lines="full">
+              <ion-label position="floating">Email</ion-label>
+              <ion-input name="email" placeholder="Tu@gmail.com" type="text" formControlName="email" required></ion-input>
+          </ion-item>
+          <span class="error ion-padding" style="color:red; font-size: x-small " *ngIf="isSubmitted && errorControl.email.errors?.required">
+            Email es requerido.
+          </span>
+          <span class="error ion-padding" style="color:red; font-size: x-small" *ngIf="isSubmitted && errorControl.email.errors?.pattern">
+            Por favor ingrese un correo valido.
+          </span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item lines="full" >
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input name="password" type="password" placeholder="Contraseña" formControlName="password" required></ion-input>
+          </ion-item>
+          <span class="error ion-padding"  style="color:red; font-size: x-small " *ngIf="isSubmitted && errorControl.password.errors?.required">
+            Contraseña Requerida.
+          </span>
+          <span class="error ion-padding" style="color:red;  font-size: x-small"  *ngIf="isSubmitted && errorControl.password.errors?.minlength">
+            El campo debe tener un mínimo de 5 caracteres.
+          </span>
+        </ion-col>
+      </ion-row>
+   
+      <ion-row>
+        <ion-col>
+          <ion-button 
+          color="success"
+          type="submit"
+          expand="full"
+          size="large"
+          >Iniciar sesion</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+   
+</ion-content>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "pps-willy": {
+      "hosting": {
+        "app": [
+          "pps-willy"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "pps-willy"
+  }
+}
